@@ -14,13 +14,13 @@ const fs = require("fs");
 
 const getAllEmp = (req, res) => {
   console.log(req.url);
-  res.status(200).send(colab);
+  res.status(200).send(colabs);
 };
 
 const getByAge = (req, res) => {
-  const id = req.params.id;
+  const idade = req.params.idade;
 
-  res.status(200).send(colabs.filter((colab) => colab.id == id));
+  res.status(200).send(colabs.filter((colab) => colab.idade == idade));
   
 };
 
@@ -49,7 +49,7 @@ const postEmp = (req, res) => {
 const deleteEmp = (req, res) => {
   const id = req.params.id;
   const colabFiltrado = colabs.find((colab) => colab.id == id);
-  const index = livros.indexOf(colabFiltrado);
+  const index = colabs.indexOf(colabFiltrado);
   colabs.splice(index, 1);
 
 

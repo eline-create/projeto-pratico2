@@ -15,7 +15,7 @@ router.delete("/colabs/:id", empController.deleteEmp);
 
 router.get("/colabs", empController.getAllEmp);
 
-router.get("/colabs/:id", empController.getByAge);
+router.get("/colabs/:idade", empController.getByAge);
 
 
 module.exports = router;

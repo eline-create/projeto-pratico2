@@ -17,10 +17,13 @@ const getAllBooks = (req, res) => {
     res.status(200).send(livros);
   };
   
+
+// Filtrar por gênero
+
   const getByGenre = (req, res) => {
-    const id = req.params.id;
+    const genero = req.params.genero;
   
-    res.status(200).send(livros.filter((livro) => livro.id == id));
+    res.status(200).send(livros.filter((livro) => livro.genero.toUpperCase() == genero.toUpperCase()));
     
   };
 

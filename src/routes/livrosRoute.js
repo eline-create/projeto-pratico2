@@ -12,7 +12,7 @@ const controller = require("../controller/livrosController");
 
 router.get("/", controller.getAllBooks);
 
-router.get("/livros/genero", controller.getByGenre);
+router.get("/livros/:genero", controller.getByGenre);
 
 router.post("/", controller.postBook);
 
