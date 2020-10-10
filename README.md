@@ -3,6 +3,7 @@
 Continuação do Projeto Prático. Neste utilizaremos, mais outros 2 métodos de JavaScript, que são o POST e o DELETE.
 Lembrando que usamos o GET e só acrescentaremos o métodos novos.
 
+Para sobre Métodos do JavaScript, verificar o [MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods).
 <h2>O que vamos fazer?</h2>
 
 ### Situação Fictícia
