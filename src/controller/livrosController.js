@@ -102,47 +102,27 @@ const putBooks = (req, res) => {
 
 
 const patchBooks = (req, res) => {
-
-
-}
-
-
-
-// Método PATCH
-
-const patchTarefa = (req, res) => {
   const id = req.params.id;
   const atualizacao = req.body;
 
-  try {
-    const tarefaASerModificada =  tarefas.find((tarefa) => tarefa.id == id);
-    console.log(Object.keys(tarefaASerModificada))
-
-    //Ele vai buscar dentro do objeto "tarefaASerModificada" atributos em que o nome coincida com os do objeto "atualizacao", e vai substituir o valor. Se a propriedade não for encontrada, a chave será adicionada.
+  try{
+    const livroASerModificado = livros.find((livro) => livro.id == id);
+    console.log(Object.keys(livroASerModificado)) // Função para substituir o valor no objeto a ser modificado. Se a propriedade não for encontrada, a chave é adicionada.
 
     Object.keys(atualizacao).forEach((chave) => {
-      tarefaASerModificada[chave] = atualizacao[chave]
+      livroASerModificado[chave] = atualizacao[chave]
     });
-
-    fs. writeFile("./src/models/tarefas.json", JSON.stringify(tarefas), "utf8", function(err){
+    fs. writeFile("./src/models/livros.json", JSON.stringify(livros), "utf8", function(err){
       if (err) {
         return res.status(424).send({ message: err });        
       }
       console.log("Arquivo atualizado com sucesso");
     });
-
-    return res.status(200).send(tarefas);
-  } catch (err) {
-    return res.status(424)
-.send({ message: err });
+    return res.status(200).send(livros);
+  } catch(err){
+    return res.status(424).send({message: err});
   }
-
-}
-
-
-
-
-
+};
 
 module.exports = {
   getAllBooks,
