@@ -19,7 +19,9 @@ router.post("/", controller.postBook);
 router.delete("/:id", controller.deleteBook);
 
 
+//Inserir as rotas de PUT e PATCH
 
-
+router.put("/:id", controller.putBooks);
+router.patch("/:id", controller.patchBooks);
 
 module.exports = router;
