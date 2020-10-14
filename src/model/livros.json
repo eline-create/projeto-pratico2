@@ -6,7 +6,8 @@
     "editora": "Sextante",
     "genero": ["Romance Policial", "Suspense"],
     "ano": 2014,
-    "quantEstoque": 100
+    "quantEstoque": 58,
+    "renovarEstoque": false
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "editora": "nVersos",
     "genero": ["Autoajuda"],
     "ano": 2015,
-    "quantEstoque": 50
+    "quantEstoque": 50,
+    "renovarEstoque": false
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "editora": "Sextante",
     "genero": ["Romance Policial", "Suspense"],
     "ano": 2004,
-    "quantEstoque": 50
+    "quantEstoque": 50,
+    "renovarEstoque": false
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "editora": "Arqueiro",
     "genero": ["Policial Investigativo", "Suspense"],
     "ano": 2015,
-    "quantEstoque": 35
+    "quantEstoque": 35,
+    "renovarEstoque": false
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "editora": "Intrínseca",
     "genero": ["Ficção Americana"],
     "ano": 2009,
-    "quantEstoque": 25
+    "quantEstoque": 25,
+    "renovarEstoque": false
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "editora": "Sextante",
     "genero": ["Psicologia"],
     "ano": 2016,
-    "quantEstoque": 20
+    "quantEstoque": 20,
+    "renovarEstoque": false
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "editora": "Globo Livros",
     "genero": ["Jornalismo", "Autobiografia"],
     "ano": 2016,
-    "quantEstoque": 20
+    "quantEstoque": 20,
+    "renovarEstoque": false
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "editora": "Leya",
     "genero": ["Ficção Americana", "Literatura"],
     "ano": 2010,
-    "quantEstoque": 15
+    "quantEstoque": 15,
+    "renovarEstoque": false
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "editora": "wMF Martins Fontes",
     "genero": ["Cristianismo", "Espiritualidade"],
     "ano": 2009,
-    "quantEstoque": 12
+    "quantEstoque": 12,
+    "renovarEstoque": true
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "editora": "Novo Conceito",
     "genero": ["Cristianismo", "Espiritualidade"],
     "ano": 2011,
-    "quantEstoque": 10
+    "quantEstoque": 10,
+    "renovarEstoque": false
   },
   {
     "id": 11,
@@ -96,15 +106,7 @@
     "editora": "UNESP",
     "genero": ["Medo", "Paisagens"],
     "ano": 2005,
-    "quantEstoque": 18
-  },
-  {
-    "id": 12,
-    "nome": "O Método 1",
-    "autor": ["Edgar Morin"],
-    "editora": "UNESP",
-    "genero": ["Medo", "Paisagens"],
-    "ano": 2005,
-    "quantEstoque": 18
+    "quantEstoque": 18,
+    "renovarEstoque": false
   }
 ]
