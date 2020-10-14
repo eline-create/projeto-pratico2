@@ -18,15 +18,18 @@ const getAllBooks = (req, res) => {
   };
   
 
-// Filtrar por gênero - VERIFICAR
+// Filtrar por gênero 
 
   const getByGenre = (req, res) => {
     const genero = req.params.genero;
-    console.log(req.url);  
-    res.status(200).send(livros.filter((livro) => [livro.genero] == genero[livro.genero]));
-    
+    res.status(200).send(
+      livros.filter(
+          (livro) => 
+            livro.genero.includes(genero)
+        )        
+      );
+      
   };
-
 
 
 // Usando o método POST
@@ -86,7 +89,7 @@ const putBooks = (req, res) => {
 
     //Função para atualizar o JSON
 
-    fs.writeFile("./src/models/livros.json", JSON.stringify(livros), "utf8", function (err) {
+    fs.writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function (err) {
       if (err) {
         return res.status(424).send({ message: err });
       }
@@ -100,7 +103,7 @@ const putBooks = (req, res) => {
 
 }
 
-
+// Acrescentei o atributo renovarEstoque.
 const patchBooks = (req, res) => {
   const id = req.params.id;
   const atualizacao = req.body;
@@ -112,7 +115,7 @@ const patchBooks = (req, res) => {
     Object.keys(atualizacao).forEach((chave) => {
       livroASerModificado[chave] = atualizacao[chave]
     });
-    fs. writeFile("./src/models/livros.json", JSON.stringify(livros), "utf8", function(err){
+    fs. writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function(err){
       if (err) {
         return res.status(424).send({ message: err });        
       }
