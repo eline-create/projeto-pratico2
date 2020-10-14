@@ -18,14 +18,16 @@ const getAllBooks = (req, res) => {
   };
   
 
-// Filtrar por gênero
+// Filtrar por gênero - VERIFICAR
 
   const getByGenre = (req, res) => {
     const genero = req.params.genero;
-  
-    res.status(200).send(livros.filter((livro) => livro.genero.toUpperCase() == genero.toUpperCase()));
+    console.log(req.url);  
+    res.status(200).send(livros.filter((livro) => [livro.genero] == genero[livro.genero]));
     
   };
+
+
 
 // Usando o método POST
 
@@ -68,13 +70,88 @@ const deleteBook = (req, res) => {
 
 };
 
+// Inserir os métodos de PUT e PATCH
+
+const putBooks = (req, res) => {
+  const id =  req.params.id;
+  try{
+    const livroASerModificado = livros.find((livro) => livro.id == id);
+    console.log(livroASerModificado); // para verificar se o array foi encontrado
+    const livroAtualizado = req.body;
+    console.log(livroAtualizado); // Requisição com as alterações
+    const index = livros.indexOf(livroASerModificado);
+    console.log(index); // verificando o index
+    livros.splice(index, 1, livroAtualizado);
+    console.log(livros); // verificando o array
+
+    //Função para atualizar o JSON
+
+    fs.writeFile("./src/models/livros.json", JSON.stringify(livros), "utf8", function (err) {
+      if (err) {
+        return res.status(424).send({ message: err });
+      }
+      console.log("Arquivo atualizado com sucesso");
+  
+    });  
+    res.status(200).send(livros);
+  } catch(err){
+    return res.status(424).send({ message: err });
+  }
+
+}
+
+
+const patchBooks = (req, res) => {
+
+
+}
+
+
+
+// Método PATCH
+
+const patchTarefa = (req, res) => {
+  const id = req.params.id;
+  const atualizacao = req.body;
+
+  try {
+    const tarefaASerModificada =  tarefas.find((tarefa) => tarefa.id == id);
+    console.log(Object.keys(tarefaASerModificada))
+
+    //Ele vai buscar dentro do objeto "tarefaASerModificada" atributos em que o nome coincida com os do objeto "atualizacao", e vai substituir o valor. Se a propriedade não for encontrada, a chave será adicionada.
+
+    Object.keys(atualizacao).forEach((chave) => {
+      tarefaASerModificada[chave] = atualizacao[chave]
+    });
+
+    fs. writeFile("./src/models/tarefas.json", JSON.stringify(tarefas), "utf8", function(err){
+      if (err) {
+        return res.status(424).send({ message: err });        
+      }
+      console.log("Arquivo atualizado com sucesso");
+    });
+
+    return res.status(200).send(tarefas);
+  } catch (err) {
+    return res.status(424)
+.send({ message: err });
+  }
+
+}
+
+
+
+
 
 
 module.exports = {
   getAllBooks,
   getByGenre,
   postBook,
-  deleteBook
+  deleteBook,
+  putBooks,
+  patchBooks
+
 };
 
 
