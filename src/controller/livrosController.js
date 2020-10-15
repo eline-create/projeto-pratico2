@@ -2,7 +2,6 @@ const livros = require("../model/livros.json");
 const fs = require("fs");
 //const { json } = require("express") - para usar o express
 
-
 //Controller(Método) para cada rota a ser realizada
 
 //1. POST - Livros;
@@ -13,41 +12,47 @@ const fs = require("fs");
 // Usando o método GET
 
 const getAllBooks = (req, res) => {
-    console.log(req.url);
-    res.status(200).send(livros);
-  };
-  
+  console.log(req.url);
+  res.status(200).send(livros);
+};
 
-// Filtrar por gênero 
+// Filtrar por gênero
 
-  const getByGenre = (req, res) => {
-    const genero = req.params.genero;
-    res.status(200).send(
-      livros.filter(
-          (livro) => 
-            livro.genero.includes(genero)
-        )        
-      );
-      
-  };
-
+const getByGenre = (req, res) => {
+  const genero = req.params.genero;
+  res.status(200).send(livros.filter((livro) => livro.genero.includes(genero)));
+};
 
 // Usando o método POST
 
 const postBook = (req, res) => {
-    console.log(req.body);
-    const { id, nome, autor, editora, genero, ano, quantEstoque } = req.body;
-    livros.push({ id, nome, autor, editora, genero, ano, quantEstoque });
+  console.log(req.body);
+  const { id, nome, autor, editora, genero, ano, quantEstoque } = req.body;
+  livros.push({
+    id,
+    nome,
+    autor,
+    editora,
+    genero,
+    ano,
+    quantEstoque,
+  });
 
-    fs.writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function(err) {
+  fs.writeFile(
+    "./src/model/livros.json",
+    JSON.stringify(livros),
+    "utf8",
+    function (err) {
       if (err) {
-        return res.status(424).send({ message:err });
+        return res.status(424).send({
+          message: err,
+        });
       }
       console.log("Arquivo atualizado com sucesso!");
+    }
+  );
 
-    });
-
-    res.status(201).send(livros); // Erro 201 para uso do POST
+  res.status(201).send(livros); // Erro 201 para uso do POST
 };
 
 // Usando o método DELETE
@@ -58,26 +63,30 @@ const deleteBook = (req, res) => {
   const index = livros.indexOf(livroFiltrado);
   livros.splice(index, 1);
 
+  //PARA REESCREVER O ARQUIVO ATUALIZADO
 
-//PARA REESCREVER O ARQUIVO ATUALIZADO
-
- fs.writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function(err) {
-   if (err) {
-    return res.status(424).send({ message:err });
-  }
-  console.log("Livro excluido e arquivo atualizado com sucesso!");
-
- });
+  fs.writeFile(
+    "./src/model/livros.json",
+    JSON.stringify(livros),
+    "utf8",
+    function (err) {
+      if (err) {
+        return res.status(424).send({
+          message: err,
+        });
+      }
+      console.log("Livro excluido e arquivo atualizado com sucesso!");
+    }
+  );
 
   res.status(200).send(livros);
-
 };
 
 // Inserir os métodos de PUT e PATCH
 
 const putBooks = (req, res) => {
-  const id =  req.params.id;
-  try{
+  const id = req.params.id;
+  try {
     const livroASerModificado = livros.find((livro) => livro.id == id);
     console.log(livroASerModificado); // para verificar se o array foi encontrado
     const livroAtualizado = req.body;
@@ -89,41 +98,57 @@ const putBooks = (req, res) => {
 
     //Função para atualizar o JSON
 
-    fs.writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function (err) {
-      if (err) {
-        return res.status(424).send({ message: err });
+    fs.writeFile(
+      "./src/model/livros.json",
+      JSON.stringify(livros),
+      "utf8",
+      function (err) {
+        if (err) {
+          return res.status(424).send({
+            message: err,
+          });
+        }
+        console.log("Arquivo atualizado com sucesso");
       }
-      console.log("Arquivo atualizado com sucesso");
-  
-    });  
+    );
     res.status(200).send(livros);
-  } catch(err){
-    return res.status(424).send({ message: err });
+  } catch (err) {
+    return res.status(424).send({
+      message: err,
+    });
   }
-
-}
+};
 
 // Acrescentei o atributo renovarEstoque.
 const patchBooks = (req, res) => {
   const id = req.params.id;
   const atualizacao = req.body;
 
-  try{
+  try {
     const livroASerModificado = livros.find((livro) => livro.id == id);
-    console.log(Object.keys(livroASerModificado)) // Função para substituir o valor no objeto a ser modificado. Se a propriedade não for encontrada, a chave é adicionada.
+    console.log(Object.keys(livroASerModificado)); // Função para substituir o valor no objeto a ser modificado. Se a propriedade não for encontrada, a chave é adicionada.
 
     Object.keys(atualizacao).forEach((chave) => {
-      livroASerModificado[chave] = atualizacao[chave]
+      livroASerModificado[chave] = atualizacao[chave];
     });
-    fs. writeFile("./src/model/livros.json", JSON.stringify(livros), "utf8", function(err){
-      if (err) {
-        return res.status(424).send({ message: err });        
+    fs.writeFile(
+      "./src/model/livros.json",
+      JSON.stringify(livros),
+      "utf8",
+      function (err) {
+        if (err) {
+          return res.status(424).send({
+            message: err,
+          });
+        }
+        console.log("Arquivo atualizado com sucesso");
       }
-      console.log("Arquivo atualizado com sucesso");
-    });
+    );
     return res.status(200).send(livros);
-  } catch(err){
-    return res.status(424).send({message: err});
+  } catch (err) {
+    return res.status(424).send({
+      message: err,
+    });
   }
 };
 
@@ -133,10 +158,5 @@ module.exports = {
   postBook,
   deleteBook,
   putBooks,
-  patchBooks
-
+  patchBooks,
 };
-
-
-
-
