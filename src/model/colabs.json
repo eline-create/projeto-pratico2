@@ -1,12 +1,13 @@
 [
   {
     "id": 1,
-    "nome": "Cory Carson",
+    "nome": "Cory Carson Wonderful",
     "idade": 22,
     "dataContrato": "22/10/2019",
     "funcao": "Atendente",
     "telefone": 989998888,
-    "email": "corycar@livrariavarzea.com.br"
+    "email": "corycar@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "dataContrato": "05/10/2020",
     "funcao": "Atendente",
     "telefone": 989998855,
-    "email": "josecarvalho@livrariavarzea.com.br"
+    "email": "josecarvalho@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "dataContrato": "04/09/2018",
     "funcao": "Gerente",
     "telefone": 977998855,
-    "email": "bita@livrariavarzea.com.br"
+    "email": "bita@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "dataContrato": "09/04/2018",
     "funcao": "Atendente",
     "telefone": 973998855,
-    "email": "chapsal@livrariavarzea.com.br"
+    "email": "chapsal@livrariavarzea.com.br",
+    "statusColaborador": "Inativo"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "dataContrato": "05/02/2010",
     "funcao": "Atendente",
     "telefone": 973933855,
-    "email": "sansao@livrariavarzea.com.br"
+    "email": "sansao@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "dataContrato": "10/02/2010",
     "funcao": "Atendente",
     "telefone": 973933877,
-    "email": "magali@livrariavarzea.com.br"
+    "email": "magali@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "dataContrato": "17/03/2010",
     "funcao": "Atendente",
     "telefone": 973933855,
-    "email": "webrosa@livrariavarzea.com.br"
+    "email": "webrosa@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "dataContrato": "15/01/2000",
     "funcao": "Gerente",
     "telefone": 973223855,
-    "email": "gabxa@livrariavarzea.com.br"
+    "email": "gabxa@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "dataContrato": "23/01/2012",
     "funcao": "Atendente",
     "telefone": 973223864,
-    "email": "danielpeixe@livrariavarzea.com.br"
+    "email": "danielpeixe@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   },
   {
     "id": 10,
@@ -87,6 +96,7 @@
     "dataContrato": "25/12/2018",
     "funcao": "Atendente",
     "telefone": 973223836,
-    "email": "rachelque@livrariavarzea.com.br"
+    "email": "rachelque@livrariavarzea.com.br",
+    "statusColaborador": "Ativo"
   }
 ]
