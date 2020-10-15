@@ -8,6 +8,8 @@ const controller = require("../controller/livrosController");
 //2. DELETE - Livro;
 //3. GET - todos os livros;
 //4. GET filter - livros por genero;
+//5. PUT;
+//6. PATCH.
 
 
 router.get("/", controller.getAllBooks);
