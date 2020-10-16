@@ -9,7 +9,7 @@ const fs = require("fs");
 //3. GET - todos os livros (GetAllBooks);
 //4. GET filter - livros por genero (GetBYGenre);
 
-// Usando o método GET
+// Usando o método GET - filter devolve um array, find devolve um objeto
 
 const getAllBooks = (req, res) => {
   console.log(req.url);
@@ -26,17 +26,25 @@ const getByGenre = (req, res) => {
 // Usando o método POST
 
 const postBook = (req, res) => {
-  console.log(req.body);
-  const { id, nome, autor, editora, genero, ano, quantEstoque } = req.body;
-  livros.push({
-    id,
-    nome,
-    autor,
-    editora,
-    genero,
-    ano,
-    quantEstoque,
-  });
+  // console.log(req.body);
+  // const { id, nome, autor, editora, genero, ano, quantEstoque } = req.body;
+  // livros.push({
+  //   id,
+  //   nome,
+  //   autor,
+  //   editora,
+  //   genero,
+  //   ano,
+  //   quantEstoque,
+  //});
+
+  const id = livros[livros.length - 1].id + 1;
+  const livro = req.body;
+  const novoLivro = { id, ...livro };
+  console.log(id);
+  console.log(livro);
+
+  livros.push(novoLivro);
 
   fs.writeFile(
     "./src/model/livros.json",
