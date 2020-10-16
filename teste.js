@@ -1,10 +1,13 @@
+
+// testanto o .includes
+
 const generos_do_livro = ['terror', 'drama', 'romance', 'detetive']
 const genero_que_quero = 'terror'
-console.log(generos_do_livro.includes(genero_que_quero))
+//console.log(generos_do_livro.includes(genero_que_quero))
 
 
 
-// Buscando o funcionário por ID para mostrar idade e nome
+// Buscando o funcionário por ID para mostrar idade e nome -  Código de Clarissa
 // const getEmployeesAge = (req, res) => {
 //   const id = req.params.id  
 //   const funcionarioFiltrado = funcionarios.find((funcionario) => funcionario.id == id);
@@ -13,8 +16,7 @@ console.log(generos_do_livro.includes(genero_que_quero))
 //   res.status(200).send({ nomeDoFuncionario, idadeDoFuncionario })
 // };
 
-//Usando o MAP e o FILTER
-
+//Usando o MAP e o FILTER - Código de Thaisa
 // const getBookAndAuthor = (req, res) => {
 //     const autor = req.params.author;
 //     console.log(autor);
@@ -30,47 +32,20 @@ console.log(generos_do_livro.includes(genero_que_quero))
 //     res.status(200).send(titulo);
 //     }
     
+//Felicidades aos Professores
 
-// Usando o método POST
+  // const a = "Feliz";
+  // const b = "Professores";
 
-const postBook = (req, res) => {
-     // console.log(req.body);
-    // const { id, nome, autor, editora, genero, ano, quantEstoque } = req.body;
-    // livros.push({
-    //   id,
-    //   nome,
-    //   autor,
-    //   editora,
-    //   genero,
-    //   ano,
-    //   quantEstoque,
-    // });
+  // console.log(`${a} dia dos ${b}, João!!!!`); 
 
-  const id = (livros[livros.length - 1].id + 1)
-  const livro = req.body;
-  const novoLivro = [{id, ...livro}]
-    console.log(id);
-    console.log(livro);
+const quinzeOut = ['^-^'];
+const pessoa = {
+  nome:"Insira aqui o seu nome",
+  data: "Dia dos Professores",}
 
-  livro.push(novoLivro);
-
-  
-    // fs.writeFile(
-    //   "./src/model/livros.json",
-    //   JSON.stringify(livros),
-    //   "utf8",
-    //   function (err) {
-    //     if (err) {
-    //       return res.status(424).send({
-    //         message: err,
-    //       });
-    //     }
-    //     console.log("Arquivo atualizado com sucesso!");
-    //   }
-    // );
-  
-    res.status(201).send(livros); // Erro 201 para uso do POST
-  };
+  console.log(`${pessoa.nome}, Feliz ${pessoa.data}, ${quinzeOut}`)
 
 
-  const quinzeOut
+
+
